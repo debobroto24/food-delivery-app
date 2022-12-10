@@ -17,8 +17,9 @@ class ProductOverview extends StatefulWidget {
   final String productImage;
   final int productPrice;
   final String productId;
+  final String productDescription; 
   ProductOverview(
-      {this.productId, this.productImage, this.productName, this.productPrice});
+      {this.productId, this.productImage, this.productName, this.productPrice , this.productDescription});
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -151,7 +152,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 children: [
                   ListTile(
                     title: Text(widget.productName),
-                    subtitle: Text("\$50"),
+                    subtitle: Text("50 ৳"),
                   ),
                   Container(
                       height: 250,
@@ -196,7 +197,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                             ),
                           ],
                         ),
-                        Text("\$${widget.productPrice}"),
+                        Text("${widget.productPrice} ৳"),
                         Count(
                           productId: widget.productId,
                           productImage: widget.productImage,
@@ -256,7 +257,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                     height: 20,
                   ),
                   Text(
-                    "of a customer. Wikipedi In marketing, a product is an object or system made available for consumer use; it is anything that can be offered to a market to satisfy the desire or need of a customer. Wikipedi",
+                    widget.productDescription ?? "",
                     style: TextStyle(
                       fontSize: 16,
                       color: textColor,

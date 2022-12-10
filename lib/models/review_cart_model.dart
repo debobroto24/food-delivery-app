@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ReviewCartModel {
   String cartId;
   String cartImage;
@@ -5,6 +7,7 @@ class ReviewCartModel {
   int cartPrice;
   int cartQuantity;
   var cartUnit;
+  Timestamp dateTime;
   ReviewCartModel({
     this.cartId,
     this.cartUnit,
@@ -12,5 +15,6 @@ class ReviewCartModel {
     this.cartName,
     this.cartPrice,
     this.cartQuantity,
+    // this.dateTime,
   });
 }

@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:food_app/auth/sign_up.dart';
 import 'package:food_app/config/colors.dart';
 import 'package:food_app/providers/user_provider.dart';
 import 'package:food_app/screens/home/home_screen.dart';
@@ -85,33 +87,45 @@ class _SignInState extends State<SignIn> {
                         SizedBox(height: 20,), 
                         
                         AuthTextField(controller: emailController,hinText: "Email", isObscure: false, icon:Icons.email_outlined), 
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         AuthTextField(controller: emailController,hinText: "password", isObscure: true, icon:Icons.password_outlined), 
-                        SizedBox(height:30), 
+                        SizedBox(height:25), 
                         Container(
-                          width: 80, 
-                          height:30, 
-                          // padding: EdgeInsets.only(left:10,right:10,), 
-                          decoration: BoxDecoration(  
-                            color: primaryColor, 
-                            borderRadius: BorderRadius.circular(4), 
-                          ),
-                          child: TextButton(
-                            onPressed: (){}, 
-                            child: Text("Login" , style: TextStyle(color:Colors.white, fontSize: 18, fontWeight: FontWeight.bold))
-                            ,)
-                          ),
-                        
-                        
-                     
+                      padding: EdgeInsets.only(left:10,right:10,top:5,bottom:5), 
+                      decoration: BoxDecoration(  
+                        color: primaryColor, 
+                        borderRadius: BorderRadius.circular(5), 
+                      ), 
+                      child:Text("Login", style: TextStyle( color: Colors.white,fontSize:20),), 
+
+                    ),
                       // SignInButton(
                           //   Buttons.Apple,
                           //   text: "Sign in with Apple",
                           //   onPressed: () {},
                           // ),
+                          SizedBox(height: 30,),
+
+                              RichText(
+                       text: TextSpan(  
+                        children: [
+                          TextSpan(text : "Don't have account!" , style:TextStyle(color:Colors.black87,)), 
+                          TextSpan(text: " Sign UP", style:TextStyle(color:Colors.black87, fontWeight: FontWeight.bold), recognizer: TapGestureRecognizer()..onTap = (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                          }), 
+                        ]
+                       ),
+                    ),
+
+                    Container(
+                      padding: EdgeInsets.only(top:20,bottom: 20),
+                      alignment: Alignment.center,
+                      child: Text("Or", style:TextStyle(fontSize:22, fontWeight: FontWeight.bold, color:Colors.black),),
+                    ), 
+
                           SignInButton(
                             Buttons.Google,
-                            text: "Sign in with Google",
+                            text: "Login with Google",
                             onPressed: () async {
                               await _googleSignUp().then(
                                 (value) => Navigator.of(context).pushReplacement(

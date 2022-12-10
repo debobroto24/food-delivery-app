@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Herbs Seasonings'),
+              Text('Fried Rice'),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 child: Text(
-                  'view all',
+                  'View all',
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -60,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           productPrice: herbsProductData.productPrice,
                           productName: herbsProductData.productName,
                           productImage: herbsProductData.productImage,
+                          productDescription: herbsProductData.productDescription,
                         ),
                       ),
                     );
@@ -90,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Fresh Fruits'),
+              Text('Burger'),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 child: Text(
-                  'view all',
+                  'View all',
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -151,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Root Vegetable'),
+              Text('Pizza'),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -163,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 child: Text(
-                  'view all',
+                  'View all',
                   style: TextStyle(color: Colors.grey),
                 ),
               ),

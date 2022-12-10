@@ -5,6 +5,7 @@ import 'package:food_app/config/colors.dart';
 import 'package:food_app/models/user_model.dart';
 import 'package:food_app/providers/user_provider.dart';
 import 'package:food_app/screens/home/drawer_side.dart';
+import 'package:food_app/screens/my_order/my_order.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class MyProfile extends StatefulWidget {
@@ -116,18 +117,22 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ],
                     ),
-                    listTile(icon: Icons.shop_outlined, title: "My Orders"),
-                    listTile(
-                        icon: Icons.location_on_outlined,
-                        title: "My Delivery Address"),
-                    listTile(
-                        icon: Icons.person_outline, title: "Refer A Friends"),
-                    listTile(
-                        icon: Icons.file_copy_outlined,
-                        title: "Terms & Conditions"),
-                    listTile(
-                        icon: Icons.policy_outlined, title: "Privacy Policy"),
-                    listTile(icon: Icons.add_chart, title: "About"),
+                    listTile(icon: Icons.shop_outlined, title: "My Orders" , tap:(){
+                       Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return MyOrder();
+                  }));
+                    }),
+                    // listTile(
+                    //     icon: Icons.location_on_outlined,
+                    //     title: "My Delivery Address"),
+                    // listTile(
+                    //     icon: Icons.person_outline, title: "Refer A Friends"),
+                    // listTile(
+                    //     icon: Icons.file_copy_outlined,
+                    //     title: "Terms & Conditions"),
+                    // listTile(
+                    //     icon: Icons.policy_outlined, title: "Privacy Policy"),
+                    // listTile(icon: Icons.add_chart, title: "About"),
                     listTile(
                         icon: Icons.exit_to_app_outlined, title: "Log Out", tap: ()async{
                           print("logout is tapped");

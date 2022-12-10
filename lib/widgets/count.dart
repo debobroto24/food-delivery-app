@@ -58,14 +58,15 @@ class _CountState extends State<Count> {
     ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
       height: 25,
-      width: 50,
+      width: 100,
+      // width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(8),
       ),
       child: isTrue == true
           ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
                   onTap: () {
@@ -89,13 +90,14 @@ class _CountState extends State<Count> {
                   },
                   child: Icon(
                     Icons.remove,
-                    size: 15,
+                    size: 20,
                     color: Color(0xffd0b84c),
                   ),
                 ),
                 Text(
                   "$count",
                   style: TextStyle(
+                    fontSize: 18,
                     color: Color(0xffd0b84c),
                     fontWeight: FontWeight.bold,
                   ),
@@ -115,7 +117,7 @@ class _CountState extends State<Count> {
                   },
                   child: Icon(
                     Icons.add,
-                    size: 15,
+                    size: 20,
                     color: Color(0xffd0b84c),
                   ),
                 ),

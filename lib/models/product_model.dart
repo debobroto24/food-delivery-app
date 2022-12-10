@@ -6,6 +6,7 @@ class ProductModel {
   int productPrice;
   String productId;
   int productQuantity;
+  String productDescription;
   List<dynamic>productUnit;
   ProductModel(
       {
@@ -14,7 +15,7 @@ class ProductModel {
       this.productUnit,
       this.productImage,
       this.productName,
-      this.productPrice});
+      this.productPrice, this.productDescription});
 
     factory ProductModel.fromDocument(DocumentSnapshot doc) {
     return ProductModel(
@@ -22,6 +23,8 @@ class ProductModel {
       productImage: doc['productImage'],
       productPrice: doc['productPrice'],
       productId: doc['productId'],
+      productUnit: doc['productUnit'],
+      productDescription: doc['description'],
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:food_app/providers/review_cart_provider.dart';
 import 'package:food_app/screens/check_out/delivery_details/single_delivery_item.dart';
 import 'package:food_app/screens/check_out/payment_summary/my_google_pay.dart';
 import 'package:food_app/screens/check_out/payment_summary/order_item.dart';
+import 'package:food_app/screens/home/home_screen.dart';
+import 'package:food_app/screens/my_order/my_order.dart';
 import 'package:provider/provider.dart';
 
 class PaymentSummary extends StatefulWidget {
@@ -70,10 +72,21 @@ class _PaymentSummaryState extends State<PaymentSummary> {
               //     : Container();
             
             },
-            child: Text(
-              "Pleace Order",
-              style: TextStyle(
-                color: textColor,
+            child: GestureDetector (
+              onTap: (){
+                // Navigator.push(context,MaterialPageRoute(builder: (context){return HomeScreen();}));
+                myType == AddressTypes.OnlinePayment?
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    MyOrder();
+                  }))
+                  // Container()
+                 :Container() ; 
+              },
+              child: Text(
+                "Pleace Order",
+                style: TextStyle(
+                  color: textColor,
+                ),
               ),
             ),
             color: primaryColor,

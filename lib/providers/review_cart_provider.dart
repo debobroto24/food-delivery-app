@@ -26,6 +26,7 @@ class ReviewCartProvider with ChangeNotifier {
         "cartQuantity": cartQuantity,
         "cartUnit":cartUnit,
         "isAdd":true,
+        "dateTime":DateTime.now(),
       },
     );
   }
@@ -52,6 +53,7 @@ void updateReviewCartData({
         "cartPrice": cartPrice,
         "cartQuantity": cartQuantity,
         "isAdd":true,
+         "dateTime":DateTime.now(),
       },
     );
   }
@@ -78,6 +80,7 @@ void updateReviewCartData({
         cartPrice: element.get("cartPrice"),
         cartQuantity: element.get("cartQuantity"),
       cartUnit: element.get("cartUnit"),
+      // dateTime:  element.get("dateTime"),
       );
       newList.add(reviewCartModel);
     });

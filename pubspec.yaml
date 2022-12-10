@@ -37,6 +37,7 @@ dependencies:
   location:
   google_maps_flutter:
   pay: ^1.0.6
+  # flutter_stripe: ^7.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

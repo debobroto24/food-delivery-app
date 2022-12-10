@@ -112,9 +112,9 @@ class _DrawerSideState extends State<DrawerSide> {
                 );
               },
             ),
-            listTile(
-                iconData: Icons.notifications_outlined, title: "Notificatio"),
-            listTile(iconData: Icons.star_outline, title: "Rating & Review"),
+            // listTile(
+            //     iconData: Icons.notifications_outlined, title: "Notificatio"),
+            // listTile(iconData: Icons.star_outline, title: "Rating & Review"),
             listTile(
                 iconData: Icons.favorite_outline,
                 title: "Wishlist",
@@ -125,8 +125,8 @@ class _DrawerSideState extends State<DrawerSide> {
                     ),
                   );
                 }),
-            listTile(iconData: Icons.copy_outlined, title: "Raise a Complaint"),
-            listTile(iconData: Icons.format_quote_outlined, title: "FAQs"),
+            // listTile(iconData: Icons.copy_outlined, title: "Raise a Complaint"),
+            // listTile(iconData: Icons.format_quote_outlined, title: "FAQs"),
             Container(
               height: 350,
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -143,7 +143,7 @@ class _DrawerSideState extends State<DrawerSide> {
                       SizedBox(
                         width: 10,
                       ),
-                      Text("+923352580282"),
+                      Text("+00000000"),
                     ],
                   ),
                   SizedBox(
@@ -158,7 +158,7 @@ class _DrawerSideState extends State<DrawerSide> {
                           width: 10,
                         ),
                         Text(
-                          "assarbaloch5@gmail.com",
+                          "hel@gmail.com",
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
