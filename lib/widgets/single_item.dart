@@ -52,23 +52,30 @@ class _SingleItemState extends State<SingleItem> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
           child: Row(
             children: [
+              // image 
               Expanded(
                 child: Container(
+                  width:100,
                   height: 90,
                   child: Center(
                     child: Image.network(
                       widget.productImage,
+                      fit:BoxFit.cover,
+                      height: 90 , 
+                      width:100, 
                     ),
                   ),
                 ),
               ),
+              // name and price 
               Expanded(
                 child: Container(
                   height: 90,
                   child: Column(
-                    mainAxisAlignment: widget.isBool == false
-                        ? MainAxisAlignment.spaceAround
-                        : MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: widget.isBool == false
+                    //     ? MainAxisAlignment.spaceAround
+                    //     : MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
@@ -82,75 +89,78 @@ class _SingleItemState extends State<SingleItem> {
                                 fontSize: 16),
                           ),
                           Text(
-                            "${widget.productPrice}\$" ?? " ",
+                            "${widget.productPrice} ৳" ?? " ",
                             
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                      widget.isBool == false
-                          ? GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (context) {
-                                      return Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                          ListTile(
-                                            title: new Text('50 Gram'),
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                          ListTile(
-                                            title: new Text('500 Gram'),
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                          ListTile(
-                                            title: new Text('1 Kg'),
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    });
-                              },
-                              child: Container(
-                                margin: EdgeInsets.only(right: 15),
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                height: 35,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                       "50 Gram",
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ),
-                                    Center(
-                                      child: Icon(
-                                        Icons.arrow_drop_down,
-                                        size: 20,
-                                        color: primaryColor,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                          : Text(widget.productUnit ??  '')
+                      // widget.isBool == false
+                      //     ? GestureDetector(
+                      //         onTap: () {
+                      //           showModalBottomSheet(
+                      //               context: context,
+                      //               builder: (context) {
+                      //                 return Column(
+                      //                   mainAxisSize: MainAxisSize.min,
+                      //                   children: <Widget>[
+                      //                     ListTile(
+                      //                       title: new Text('50 Gram'),
+                      //                       onTap: () {
+                      //                         Navigator.pop(context);
+                      //                       },
+                      //                     ),
+                      //                     ListTile(
+                      //                       title: new Text('500 Gram'),
+                      //                       onTap: () {
+                      //                         Navigator.pop(context);
+                      //                       },
+                      //                     ),
+                      //                     ListTile(
+                      //                       title: new Text('1 Kg'),
+                      //                       onTap: () {
+                      //                         Navigator.pop(context);
+                      //                       },
+                      //                     ),
+                      //                   ],
+                      //                 );
+                      //               });
+                      //         },
+
+                              // gram unit hide  
+                              // child: Container(
+                              //   margin: EdgeInsets.only(right: 15),
+                              //   padding: EdgeInsets.symmetric(horizontal: 10),
+                              //   height: 35,
+                              //   decoration: BoxDecoration(
+                              //     border: Border.all(color: Colors.grey),
+                              //     borderRadius: BorderRadius.circular(30),
+                              //   ),
+                              //   child: Row(
+                              //     children: [
+                              //       Expanded(
+                              //         child: Text(
+                              //          "50 Gram",
+                              //           style: TextStyle(
+                              //             color: Colors.grey,
+                              //             fontSize: 14,
+                              //           ),
+                              //         ),
+                              //       ),
+                              //       Center(
+                              //         child: Icon(
+                              //           Icons.arrow_drop_down,
+                              //           size: 20,
+                              //           color: primaryColor,
+                              //         ),
+                              //       )
+                              //     ],
+                              //   ),
+                              // ),
+                            
+                          //   )
+                          // : Text(widget.productUnit ??  '')
                     ],
                   ),
                 ),

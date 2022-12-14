@@ -1,25 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ReviewCartModel {
+class OrderCartModel {
   String cartId;
   String cartImage;
   String cartName;
   int cartPrice;
   int cartQuantity;
+  int totalproduct; 
+  double totalPrice; 
   var cartUnit;
-  Timestamp dateTime;
-  ReviewCartModel({
+ Timestamp dateTime;
+  OrderCartModel({
     this.cartId,
     this.cartUnit,
     this.cartImage,
     this.cartName,
     this.cartPrice,
     this.cartQuantity,
-    this.dateTime,
+    this.totalPrice, 
+    this.totalproduct,
+    this.dateTime, 
+    
   });
-//  ReviewCartModel.toJson(List<ReviewCartModel> data){
-//     data.forEach((element) {
-//       return 
-//     })
-//   }
 }

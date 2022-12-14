@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/colors.dart';
 import 'package:food_app/models/delivery_address_model.dart';
+import 'package:food_app/models/product_model.dart';
+import 'package:food_app/models/review_cart_model.dart';
+import 'package:food_app/providers/product_order_provider.dart';
 import 'package:food_app/providers/review_cart_provider.dart';
 import 'package:food_app/screens/check_out/delivery_details/single_delivery_item.dart';
 import 'package:food_app/screens/check_out/payment_summary/my_google_pay.dart';
@@ -23,17 +26,22 @@ enum AddressTypes {
 }
 
 class _PaymentSummaryState extends State<PaymentSummary> {
-  var myType = AddressTypes.Home;
 
+  // ProductOrderProvider productOrderProvider; 
+  
+  var myType = AddressTypes.Home;
+  ProductOrderProvider orderProvider; 
   @override
   Widget build(BuildContext context) {
     ReviewCartProvider reviewCartProvider = Provider.of(context);
     reviewCartProvider.getReviewCartData();
 
+    orderProvider = Provider.of<ProductOrderProvider>(context);
     double discount = 30;
     double discountValue;
     double shippingChanrge = 3.7;
     double total;
+  // List<ReviewCartModel> ff =  reviewCartProvider.getReviewCartDataList;
     double totalPrice = reviewCartProvider.getTotalPrice();
     if (totalPrice > 300) {
       discountValue = (totalPrice * discount) / 100;
@@ -82,10 +90,16 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                   // Container()
                  :Container() ; 
               },
-              child: Text(
-                "Pleace Order",
-                style: TextStyle(
-                  color: textColor,
+              child: GestureDetector(
+                onTap: ()async{
+                  // orderProvider.addOrderProduct();
+                  orderProvider.addOrderTest();
+                },
+                child: Text(
+                  "Pleace Order",
+                  style: TextStyle(
+                    color: textColor,
+                  ),
                 ),
               ),
             ),
