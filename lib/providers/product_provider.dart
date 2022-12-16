@@ -7,7 +7,6 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> search = [];
   productModels(QueryDocumentSnapshot element) {
-   
     // productModel = ProductModel(
     //   productImage: element.get("productImage"),
     //   productName: element.get("productName"),
@@ -15,11 +14,10 @@ class ProductProvider with ChangeNotifier {
     //   productId: element.get("productId"),
     //   productUnit: element.get("productUnit"),
     // );
-    
-      
-          productModel = ProductModel.fromDocument(element);
 
-     print(element.get("productPrice"));
+    productModel = ProductModel.fromDocument(element);
+
+    // print(element.get("productPrice"));
     search.add(productModel);
   }
 
@@ -35,7 +33,7 @@ class ProductProvider with ChangeNotifier {
     value.docs.forEach(
       (element) {
         productModels(element);
-        
+
         newList.add(productModel);
       },
     );
@@ -53,21 +51,21 @@ class ProductProvider with ChangeNotifier {
 
   fatchFreshProductData() async {
     List<ProductModel> newList = [];
-    print("inside fresh product provider9999999999999999999999999999999 "); 
+    // print("inside fresh product provider9999999999999999999999999999999 ");
     QuerySnapshot value =
         await FirebaseFirestore.instance.collection("FreshProduct").get();
-      
-    print(value.docs.length);
+
+    // print(value.docs.length);
     value.docs.forEach(
       (element) {
         productModels(element);
-        print("this is me");
-        print(element.get("productName"));
+        // print("this is me");
+        // print(element.get("productName"));
         newList.add(productModel);
       },
     );
-       print("inside fresh product provider9999999999999999999999999999999 "); 
-    
+    //  print("inside fresh product provider9999999999999999999999999999999 ");
+
     freshProductList = newList;
     notifyListeners();
   }

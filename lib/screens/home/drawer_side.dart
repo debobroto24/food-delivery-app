@@ -63,11 +63,10 @@ class _DrawerSideState extends State<DrawerSide> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          userData.userName
-                          // "user name"
-                        
-                        ),
+                        Text(userData.userName
+                            // "user name"
+
+                            ),
                         Text(
                           userData.userEmail,
                           // "user email",
@@ -94,22 +93,27 @@ class _DrawerSideState extends State<DrawerSide> {
               iconData: Icons.shop_outlined,
               title: "Review Cart",
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/review');
               },
             ),
+            listTile(
+                iconData: Icons.shop_outlined,
+                title: 'Orders',
+                onTap: () {
+                  Navigator.of(context).pushNamed('/myorder');
+                }),
             listTile(
               iconData: Icons.person_outlined,
               title: "My Profile",
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MyProfile(userProvider:widget.userProvider),
-                  ),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) =>
+                //         MyProfile(userProvider: widget.userProvider),
+                //   ),
+                // );
+                Navigator.of(context)
+                    .pushNamed('/profile', arguments: widget.userProvider);
               },
             ),
             // listTile(
@@ -119,54 +123,50 @@ class _DrawerSideState extends State<DrawerSide> {
                 iconData: Icons.favorite_outline,
                 title: "Wishlist",
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => WishLsit(),
-                    ),
-                  );
+                  Navigator.of(context).pushNamed('/wishlist');
                 }),
             // listTile(iconData: Icons.copy_outlined, title: "Raise a Complaint"),
             // listTile(iconData: Icons.format_quote_outlined, title: "FAQs"),
-            Container(
-              height: 350,
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Contact Support"),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Text("Call us:"),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text("+00000000"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Text("Mail us:"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "hel@gmail.com",
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
+            // Container(
+            //   height: 350,
+            //   padding: EdgeInsets.symmetric(horizontal: 20),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Text("Contact Support"),
+            //       SizedBox(
+            //         height: 10,
+            //       ),
+            //       Row(
+            //         children: [
+            //           Text("Call us:"),
+            //           SizedBox(
+            //             width: 10,
+            //           ),
+            //           Text("+00000000"),
+            //         ],
+            //       ),
+            //       SizedBox(
+            //         height: 5,
+            //       ),
+            //       SingleChildScrollView(
+            //         scrollDirection: Axis.horizontal,
+            //         child: Row(
+            //           children: [
+            //             Text("Mail us:"),
+            //             SizedBox(
+            //               width: 10,
+            //             ),
+            //             Text(
+            //               "hel@gmail.com",
+            //               overflow: TextOverflow.ellipsis,
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),

@@ -25,7 +25,7 @@ class _MyProfileState extends State<MyProfile> {
           height: 1,
         ),
         ListTile(
-          onTap:tap , 
+          onTap: tap,
           leading: Icon(icon),
           title: Text(title),
           trailing: Icon(Icons.arrow_forward_ios),
@@ -36,7 +36,7 @@ class _MyProfileState extends State<MyProfile> {
 
   Widget build(BuildContext context) {
     var userData = widget.userProvider.currentUserData;
-    FirebaseAuth fireabase = FirebaseAuth.instance; 
+    FirebaseAuth fireabase = FirebaseAuth.instance;
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -117,11 +117,11 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ],
                     ),
-                    listTile(icon: Icons.shop_outlined, title: "My Orders" , tap:(){
-                       Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return MyOrder();
-                  }));
-                    }),
+                    //   listTile(icon: Icons.shop_outlined, title: "My Orders" , tap:(){
+                    //      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    //   return MyOrder();
+                    // }));
+                    //   }),
                     // listTile(
                     //     icon: Icons.location_on_outlined,
                     //     title: "My Delivery Address"),
@@ -134,12 +134,15 @@ class _MyProfileState extends State<MyProfile> {
                     //     icon: Icons.policy_outlined, title: "Privacy Policy"),
                     // listTile(icon: Icons.add_chart, title: "About"),
                     listTile(
-                        icon: Icons.exit_to_app_outlined, title: "Log Out", tap: ()async{
+                        icon: Icons.exit_to_app_outlined,
+                        title: "Log Out",
+                        tap: () async {
                           print("logout is tapped");
                           await GoogleSignIn().signOut();
                           await fireabase.signOut();
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return SignIn(); 
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return SignIn();
                           }));
                         }),
                   ],

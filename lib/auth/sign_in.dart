@@ -67,9 +67,9 @@
 //             ),
 //             child: Center(
 //               child: SingleChildScrollView(
-                
+
 //                 child: Container(
-                  
+
 //                   // color: Colors.red,
 //                   child: Column(
 //                     mainAxisAlignment: MainAxisAlignment.center,
@@ -84,19 +84,19 @@
 //                             )
 //                           ]),
 //                         ),
-//                         SizedBox(height: 20,), 
-                        
-//                         AuthTextField(controller: emailController,hinText: "Email", isObscure: false, icon:Icons.email_outlined), 
+//                         SizedBox(height: 20,),
+
+//                         AuthTextField(controller: emailController,hinText: "Email", isObscure: false, icon:Icons.email_outlined),
 //                         SizedBox(height: 20),
-//                         AuthTextField(controller: emailController,hinText: "password", isObscure: true, icon:Icons.password_outlined), 
-//                         SizedBox(height:25), 
+//                         AuthTextField(controller: emailController,hinText: "password", isObscure: true, icon:Icons.password_outlined),
+//                         SizedBox(height:25),
 //                         Container(
-//                       padding: EdgeInsets.only(left:10,right:10,top:5,bottom:5), 
-//                       decoration: BoxDecoration(  
-//                         color: primaryColor, 
-//                         borderRadius: BorderRadius.circular(5), 
-//                       ), 
-//                       child:Text("Login", style: TextStyle( color: Colors.white,fontSize:20),), 
+//                       padding: EdgeInsets.only(left:10,right:10,top:5,bottom:5),
+//                       decoration: BoxDecoration(
+//                         color: primaryColor,
+//                         borderRadius: BorderRadius.circular(5),
+//                       ),
+//                       child:Text("Login", style: TextStyle( color: Colors.white,fontSize:20),),
 
 //                     ),
 //                       // SignInButton(
@@ -107,12 +107,12 @@
 //                           SizedBox(height: 30,),
 
 //                               RichText(
-//                        text: TextSpan(  
+//                        text: TextSpan(
 //                         children: [
-//                           // TextSpan(text : "Don't have account!" , style:TextStyle(color:Colors.black87,)), 
+//                           // TextSpan(text : "Don't have account!" , style:TextStyle(color:Colors.black87,)),
 //                           // TextSpan(text: " Sign UP", style:TextStyle(color:Colors.black87, fontWeight: FontWeight.bold), recognizer: TapGestureRecognizer()..onTap = (){
 //                           //   Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
-//                           // }), 
+//                           // }),
 //                         ]
 //                        ),
 //                     ),
@@ -121,7 +121,7 @@
 //                       padding: EdgeInsets.only(top:20,bottom: 20),
 //                       alignment: Alignment.center,
 //                       child: Text("Or", style:TextStyle(fontSize:22, fontWeight: FontWeight.bold, color:Colors.black),),
-//                     ), 
+//                     ),
 
 //                           SignInButton(
 //                             Buttons.Google,
@@ -163,9 +163,6 @@
 //     );
 //   }
 // }
-
-
-
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -223,48 +220,47 @@ class _SignInState extends State<SignIn> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('assets/background.png')),
+              fit: BoxFit.cover,
+              image: AssetImage('assets/online-food-app.jpg')),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Text('Vegi',
-
-                style:
-                    TextStyle(fontSize: 50, color: Colors.white, shadows: [
-                  BoxShadow(
-                    blurRadius: 5,
-                    color: Colors.green.shade900,
-                    offset: Offset(3, 3),
-                  )
-                ]),
-              ),
-              SizedBox(height: 20,), 
-
-            Container(
-              margin: EdgeInsets.only(left:10, right:10), 
-              width:double.infinity * 0.5,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.white, 
-                borderRadius: BorderRadius.circular(10), 
-                boxShadow:[
-                  BoxShadow(
-                    color: Colors.grey, 
-                    blurRadius: 7, 
-                    offset: Offset(0,0)
-                  ),
-                ]
-              ),
-              child: TextField(  
-                decoration: InputDecoration(  
-                  hintText: "Email",
-                  prefixIcon: Icon(Icons.email_outlined,size:20,color: Colors.grey),
-                  border: InputBorder.none,
-                    
-                ),
-              ),
+            Text(
+              'Testy Food',
+              style: TextStyle(fontSize: 50, color: Colors.white, shadows: [
+                BoxShadow(
+                  blurRadius: 5,
+                  color: Colors.green.shade900,
+                  offset: Offset(3, 3),
+                )
+              ]),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            // Container(
+            //   margin: EdgeInsets.only(left: 10, right: 10),
+            //   width: double.infinity * 0.5,
+            //   height: 40,
+            //   decoration: BoxDecoration(
+            //       color: Colors.white,
+            //       borderRadius: BorderRadius.circular(10),
+            //       boxShadow: [
+            //         BoxShadow(
+            //             color: Colors.grey,
+            //             blurRadius: 7,
+            //             offset: Offset(0, 0)),
+            //       ]),
+            //   child: TextField(
+            //     decoration: InputDecoration(
+            //       hintText: "Email",
+            //       prefixIcon:
+            //           Icon(Icons.email_outlined, size: 20, color: Colors.grey),
+            //       border: InputBorder.none,
+            //     ),
+            //   ),
+            // ),
             Container(
               height: 400,
               width: double.infinity,
@@ -272,7 +268,6 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text('Sign in to contunue'),
-                 
                   Column(
                     children: [
                       SignInButton(

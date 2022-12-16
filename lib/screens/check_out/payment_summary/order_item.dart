@@ -16,7 +16,7 @@ class OrderItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-           e.cartName,
+            e.cartName,
             style: TextStyle(
               color: Colors.grey[600],
             ),
@@ -28,8 +28,7 @@ class OrderItem extends StatelessWidget {
             ),
           ),
           Text(
-            "\$${e.cartPrice}",
-            
+            "${e.cartPrice} ৳",
           ),
         ],
       ),

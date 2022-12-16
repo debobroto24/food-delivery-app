@@ -26,11 +26,10 @@ enum AddressTypes {
 }
 
 class _PaymentSummaryState extends State<PaymentSummary> {
+  // ProductOrderProvider productOrderProvider;
 
-  // ProductOrderProvider productOrderProvider; 
-  
   var myType = AddressTypes.Home;
-  ProductOrderProvider orderProvider; 
+  ProductOrderProvider orderProvider;
   @override
   Widget build(BuildContext context) {
     ReviewCartProvider reviewCartProvider = Provider.of(context);
@@ -38,15 +37,15 @@ class _PaymentSummaryState extends State<PaymentSummary> {
 
     orderProvider = Provider.of<ProductOrderProvider>(context);
     double discount = 30;
-    double discountValue;
+    double discountValue = 22;
     double shippingChanrge = 3.7;
     double total;
-  // List<ReviewCartModel> ff =  reviewCartProvider.getReviewCartDataList;
+    // List<ReviewCartModel> ff =  reviewCartProvider.getReviewCartDataList;
     double totalPrice = reviewCartProvider.getTotalPrice();
-    if (totalPrice > 300) {
-      discountValue = (totalPrice * discount) / 100;
-      total = totalPrice - discountValue;
-    }
+    // if (totalPrice > 300) {
+    //   discountValue = (totalPrice * discount) / 100;
+    //   total = totalPrice - discountValue;
+    // }
 
     return Scaffold(
       appBar: AppBar(
@@ -58,7 +57,7 @@ class _PaymentSummaryState extends State<PaymentSummary> {
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
         subtitle: Text(
-          "\$${total   ?? totalPrice}",
+          "${total ?? totalPrice} ৳",
           style: TextStyle(
             color: Colors.green[900],
             fontWeight: FontWeight.bold,
@@ -78,22 +77,22 @@ class _PaymentSummaryState extends State<PaymentSummary> {
               //         ),
               //       )
               //     : Container();
-            
             },
-            child: GestureDetector (
-              onTap: (){
+            child: GestureDetector(
+              onTap: () {
                 // Navigator.push(context,MaterialPageRoute(builder: (context){return HomeScreen();}));
-                myType == AddressTypes.OnlinePayment?
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    MyOrder();
-                  }))
-                  // Container()
-                 :Container() ; 
+                myType == AddressTypes.OnlinePayment
+                    ? Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                        MyOrder();
+                      }))
+                    // Container()
+                    : Container();
               },
               child: GestureDetector(
-                onTap: ()async{
+                onTap: () async {
                   // orderProvider.addOrderProduct();
-                  orderProvider.addOrderTest();
+                  orderProvider.addOrder();
                 },
                 child: Text(
                   "Pleace Order",
@@ -151,7 +150,7 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                     ),
                   ),
                   trailing: Text(
-                    "\$${totalPrice + 5}",
+                    "${totalPrice + 5} ৳",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -164,25 +163,25 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                     style: TextStyle(color: Colors.grey[600]),
                   ),
                   trailing: Text(
-                    "\$$discountValue",
+                    "$discountValue ৳",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                ListTile(
-                  minVerticalPadding: 5,
-                  leading: Text(
-                    "Compen Discount",
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  trailing: Text(
-                    "\$10",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                // ListTile(
+                //   minVerticalPadding: 5,
+                //   leading: Text(
+                //     "Compen Discount",
+                //     style: TextStyle(color: Colors.grey[600]),
+                //   ),
+                //   trailing: Text(
+                //     "10 ৳",
+                //     style: TextStyle(
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                // ),
                 Divider(),
                 ListTile(
                   leading: Text("Payment Options"),

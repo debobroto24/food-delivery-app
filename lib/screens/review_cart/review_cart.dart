@@ -68,7 +68,7 @@ class ReviewCart extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              if(reviewCartProvider.getReviewCartDataList.isEmpty){
+              if (reviewCartProvider.getReviewCartDataList.isEmpty) {
                 return Fluttertoast.showToast(msg: "No Cart Data Found");
               }
               Navigator.of(context).push(
@@ -86,37 +86,39 @@ class ReviewCart extends StatelessWidget {
           style: TextStyle(color: textColor, fontSize: 18),
         ),
       ),
-      body: reviewCartProvider.getReviewCartDataList.isEmpty
-          ? Center(
-              child: Text("NO DATA"),
-            )
-          : ListView.builder(
-              itemCount: reviewCartProvider.getReviewCartDataList.length,
-              itemBuilder: (context, index) {
-                ReviewCartModel data =
-                    reviewCartProvider.getReviewCartDataList[index];
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SingleItem(
-                      isBool: true,
-                      wishList: false,
-                      productImage: data.cartImage,
-                      productName: data.cartName,
-                      productPrice: data.cartPrice,
-                      productId: data.cartId,
-                      productQuantity: data.cartQuantity,
-                      productUnit: data.cartUnit,
-                      onDelete: () {
-                        showAlertDialog(context, data);
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
+      body: reviewCartProvider.getIsLoading
+          ? Center(child: CircularProgressIndicator())
+          : reviewCartProvider.getReviewCartDataList.isEmpty
+              ? Center(
+                  child: Text("You didn't select any product"),
+                )
+              : ListView.builder(
+                  itemCount: reviewCartProvider.getReviewCartDataList.length,
+                  itemBuilder: (context, index) {
+                    ReviewCartModel data =
+                        reviewCartProvider.getReviewCartDataList[index];
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        SingleItem(
+                          isBool: true,
+                          wishList: false,
+                          productImage: data.cartImage,
+                          productName: data.cartName,
+                          productPrice: data.cartPrice,
+                          productId: data.cartId,
+                          productQuantity: data.cartQuantity,
+                          productUnit: data.cartUnit,
+                          onDelete: () {
+                            showAlertDialog(context, data);
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                ),
     );
   }
 }

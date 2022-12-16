@@ -10,8 +10,10 @@ import 'package:food_app/providers/product_provider.dart';
 import 'package:food_app/providers/review_cart_provider.dart';
 import 'package:food_app/providers/user_provider.dart';
 import 'package:food_app/providers/wishlist_provider.dart';
+import 'package:food_app/route_helper/route_helper.dart';
 import 'package:food_app/screens/check_out/payment_summary/load_payment.dart';
 import 'package:food_app/screens/home/home_screen.dart';
+import 'package:food_app/screens/my_order/my_order.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -41,8 +43,7 @@ class MyApp extends StatelessWidget {
           create: (context) => CheckoutProvider(),
         ),
         ChangeNotifierProvider<ProductOrderProvider>(
-          create: (context) =>ProductOrderProvider()
-          )
+            create: (context) => ProductOrderProvider())
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -58,8 +59,10 @@ class MyApp extends StatelessWidget {
             return SignIn();
             // return SignUp();
             // return LoadPayment();
+            // return MyOrder();
           },
         ),
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );
   }

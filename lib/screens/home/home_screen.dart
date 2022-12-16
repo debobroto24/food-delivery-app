@@ -60,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           productPrice: herbsProductData.productPrice,
                           productName: herbsProductData.productName,
                           productImage: herbsProductData.productImage,
-                          productDescription: herbsProductData.productDescription,
+                          productDescription:
+                              herbsProductData.productDescription,
                         ),
                       ),
                     );
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   productPrice: herbsProductData.productPrice,
                   productImage: herbsProductData.productImage,
                   productName: herbsProductData.productName,
-                  productUnit:herbsProductData ,
+                  productUnit: herbsProductData,
                 );
               },
             ).toList(),
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   productImage: freshProductData.productImage,
                   productName: freshProductData.productName,
                   productPrice: freshProductData.productPrice,
-                  productUnit:freshProductData,
+                  productUnit: freshProductData,
                 );
               },
             ).toList(),
@@ -141,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
 
   Widget _buildRootProduct() {
     return Column(
@@ -233,12 +233,14 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Color(0xffd6d382),
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        Search(search: productProvider.gerAllProductSearch),
-                  ),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) =>
+                //         Search(search: productProvider.gerAllProductSearch),
+                //   ),
+                // );
+                Navigator.of(context).pushNamed('/search',
+                    arguments: productProvider.gerAllProductSearch);
               },
               icon: Icon(
                 Icons.search,
@@ -251,11 +253,12 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
-                  ),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => ReviewCart(),
+                //   ),
+                // );
+                Navigator.of(context).pushNamed('/review');
               },
               child: CircleAvatar(
                 backgroundColor: Color(0xffd6d382),
