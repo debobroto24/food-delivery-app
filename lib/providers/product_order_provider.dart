@@ -1,3 +1,5 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:food_app/models/order_cart_model.dart';
 import 'package:food_app/providers/review_cart_provider.dart';
 import 'package:intl/intl.dart';
@@ -113,13 +115,13 @@ class ProductOrderProvider with ChangeNotifier {
 
     // print("xxxxxxxxxxx");
     // print("end fetch order list");
-   
+
     OrderMap = orderListMap;
     notifyListeners();
-     isLoading = false;
+    isLoading = false;
   } // fetchorderlist end
 
-  addOrder() async {
+  addOrder(String cashcheck) async {
     //  DocumentSnapshot tvalue = await FirebaseFirestore.instance.collection("OrderCart").doc(FirebaseAuth.instance.currentUser.uid).get();
     //  tvalue.get("allOrders");
     //  print( tvalue.get("allOrders").);
@@ -127,6 +129,7 @@ class ProductOrderProvider with ChangeNotifier {
     //  print(tvalue.data());
     List<OrderCartModel> order = [];
     try {
+      isLoading = true;
       QuerySnapshot allItem = await FirebaseFirestore.instance
           .collection("ReviewCart")
           .doc(FirebaseAuth.instance.currentUser.uid)
@@ -154,6 +157,17 @@ class ProductOrderProvider with ChangeNotifier {
           .collection("DocKey")
           .doc("DocKey")
           .get();
+      FirebaseFirestore.instance
+          .collection('PaymentDetails')
+          .doc(FirebaseAuth.instance.currentUser.uid)
+          .set({
+        'totalAmount': totalPrice,
+        'totalProduct': totalProduct,
+        'dateTime': DateTime.now(),
+        'orderDocKey': docKey,
+        'paymentgetway': cashcheck,
+      });
+
       QuerySnapshot isUserSetInOrderList =
           await FirebaseFirestore.instance.collection("OrderList").get();
       if (docExits.exists) {
@@ -210,6 +224,9 @@ class ProductOrderProvider with ChangeNotifier {
         });
         notifyListeners();
       });
-    } catch (e) {}
+    } catch (e) {
+      isLoading = false;
+    }
+    isLoading = false;
   }
 }

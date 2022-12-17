@@ -52,7 +52,7 @@ class ReviewCart extends StatelessWidget {
       bottomNavigationBar: ListTile(
         title: Text("Total Aount"),
         subtitle: Text(
-          "\$ ${reviewCartProvider.getTotalPrice()}",
+          "৳ ${reviewCartProvider.getTotalPrice()}",
           style: TextStyle(
             color: Colors.green[900],
           ),

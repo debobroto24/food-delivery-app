@@ -81,24 +81,24 @@ class _PaymentSummaryState extends State<PaymentSummary> {
             child: GestureDetector(
               onTap: () {
                 // Navigator.push(context,MaterialPageRoute(builder: (context){return HomeScreen();}));
-                myType == AddressTypes.OnlinePayment
-                    ? Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                        MyOrder();
-                      }))
-                    // Container()
-                    : Container();
+                // myType == AddressTypes.OnlinePayment
+                //     ? Navigator.of(context)
+                //         .push(MaterialPageRoute(builder: (context) {
+                //         MyOrder();
+                //       }))
+                //     // Container()
+                //     : Container();
+                if (myType == AddressTypes.OnlinePayment) {
+                  Navigator.of(context).pushNamed('/loadpayment');
+                } else {
+                  orderProvider.addOrder('home');
+                  Navigator.of(context).pushNamed('/home');
+                }
               },
-              child: GestureDetector(
-                onTap: () async {
-                  // orderProvider.addOrderProduct();
-                  orderProvider.addOrder();
-                },
-                child: Text(
-                  "Pleace Order",
-                  style: TextStyle(
-                    color: textColor,
-                  ),
+              child: Text(
+                "Place Order",
+                style: TextStyle(
+                  color: textColor,
                 ),
               ),
             ),

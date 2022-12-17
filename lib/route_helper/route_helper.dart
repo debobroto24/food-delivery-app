@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/check_out/payment_summary/load_payment.dart';
 import 'package:food_app/screens/home/home_screen.dart';
 import 'package:food_app/screens/my_order/my_order.dart';
 import 'package:food_app/screens/my_profile/my_profile.dart';
@@ -32,6 +33,8 @@ class RouteGenerator {
         );
       case '/wishlist':
         return MaterialPageRoute(builder: (_) => WishLsit());
+      case '/loadpayment':
+        return MaterialPageRoute(builder: (_) => LoadPayment());
       case '/search':
         return MaterialPageRoute(builder: (_) => Search(search: args));
     }
